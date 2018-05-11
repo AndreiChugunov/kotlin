@@ -1,0 +1,1 @@
+<caret>val value = 5

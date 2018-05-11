@@ -1,0 +1,3 @@
+object Obj{
+    const val value = 5
+}

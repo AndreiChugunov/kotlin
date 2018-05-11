@@ -2864,4 +2864,35 @@ public class LocalInspectionTestGenerated extends AbstractLocalInspectionTest {
             doTest(fileName);
         }
     }
+
+    @TestMetadata("idea/testData/inspectionsLocal/missingConst")
+    @TestDataPath("$PROJECT_ROOT")
+    @RunWith(JUnit3RunnerWithInners.class)
+    public static class MissingConst extends AbstractLocalInspectionTest {
+
+        @TestMetadata("objectPrimitive.kt")
+        public void testObjectPrimitive() throws Exception {
+            String fileName = KotlinTestUtils.navigationMetadata("idea/testData/inspectionsLocal/missingConst/objectPrimitive.kt");
+            doTest(fileName);
+        }
+
+        @TestMetadata("objectString.kt")
+        public void testObjectString() throws Exception {
+            String fileName = KotlinTestUtils.navigationMetadata("idea/testData/inspectionsLocal/missingConst/objectString.kt");
+            doTest(fileName);
+        }
+
+        @TestMetadata("topLevelPrimitive.kt")
+        public void testTopLevelPrimitive() throws Exception {
+            String fileName = KotlinTestUtils.navigationMetadata("idea/testData/inspectionsLocal/missingConst/topLevelPrimitive.kt");
+            doTest(fileName);
+        }
+
+        @TestMetadata("topLevelString.kt")
+        public void testTopLevelString() throws Exception {
+            String fileName = KotlinTestUtils.navigationMetadata("idea/testData/inspectionsLocal/missingConst/topLevelString.kt");
+            doTest(fileName);
+        }
+    }
+
 }

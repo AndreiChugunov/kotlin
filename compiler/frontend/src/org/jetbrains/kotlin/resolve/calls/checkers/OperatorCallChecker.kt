@@ -37,7 +37,8 @@ import org.jetbrains.kotlin.resolve.descriptorUtil.fqNameUnsafe
 import org.jetbrains.kotlin.types.ErrorUtils
 import org.jetbrains.kotlin.types.expressions.OperatorConventions
 
-class OperatorCallChecker : CallChecker {
+class
+OperatorCallChecker : CallChecker {
     override fun check(resolvedCall: ResolvedCall<*>, reportOn: PsiElement, context: CallCheckerContext) {
         val functionDescriptor = resolvedCall.resultingDescriptor as? FunctionDescriptor ?: return
         if (!checkNotErrorOrDynamic(functionDescriptor)) return
