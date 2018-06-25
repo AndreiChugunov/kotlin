@@ -124,6 +124,12 @@ abstract class CommonCompilerArguments : CommonToolArguments() {
     )
     var effectSystem: Boolean by FreezableVar(false)
 
+    @Argument(
+            value = "-Xconstant-propagation",
+            description = "Enable constant propagation"
+    )
+    var constantPropagation: Boolean by FreezableVar(false)
+
     open fun configureAnalysisFlags(collector: MessageCollector): MutableMap<AnalysisFlag<*>, Any> {
         return HashMap<AnalysisFlag<*>, Any>().apply {
             put(AnalysisFlag.skipMetadataVersionCheck, skipMetadataVersionCheck)

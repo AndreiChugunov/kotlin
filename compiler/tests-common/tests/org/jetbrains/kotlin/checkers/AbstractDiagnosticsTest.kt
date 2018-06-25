@@ -232,7 +232,6 @@ abstract class AbstractDiagnosticsTest : BaseDiagnosticsTest() {
                 LanguageVersionSettingsImpl.DEFAULT.languageVersion
         )
     }
-
     private fun checkDynamicCallDescriptors(expectedFile: File, testFiles: List<TestFile>) {
         val serializer = RecursiveDescriptorComparator(RECURSIVE_ALL)
 

@@ -305,7 +305,6 @@ abstract class BaseDiagnosticsTest : KotlinMultiFileTestWithJava<TestModule, Tes
         val DEFAULT_DIAGNOSTIC_TESTS_FEATURES = mapOf(
                 LanguageFeature.Coroutines to LanguageFeature.State.ENABLED
         )
-
         val CHECK_TYPE_DIRECTIVE = "CHECK_TYPE"
         val CHECK_TYPE_PACKAGE = "tests._checkType"
         private val CHECK_TYPE_DECLARATIONS = "\npackage " + CHECK_TYPE_PACKAGE +

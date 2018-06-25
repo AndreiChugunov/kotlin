@@ -1,3 +1,26 @@
 == bar ==
 
 =====================
+
+1 class RedundantVisibilityModifierInspection
+2     : AbstractKotlinInspection(), CleanupLocalInspectionTool {
+3     override fun buildVisitor(holder: ProblemsHolder,
+4                               isOnTheFly: Boolean,
+5                               session: LocalInspectionToolSession): PsiElementVisitor {
+6         return object : KtVisitorVoid() {
+7             override fun visitDeclaration(declaration: KtDeclaration) {
+8                 val visibilityModifier = declaration.visibilityModifier() ?: return
+9                 val implicitVisibility = declaration.implicitVisibility()
+10                if (visibilityModifier.node.elementType == implicitVisibility) {
+11                    holder.registerProblem(visibilityModifier,
+12                                           "Redundant visibility modifier",
+13                                           ProblemHighlightType.LIKE_UNUSED_SYMBOL,
+14                                           IntentionWrapper(RemoveModifierFix(declaration,
+15                                                                              implicitVisibility,
+16                                                                              isRedundant = true),
+17                                                            declaration.containingFile))
+18                }
+19            }
+20        }
+21    }
+22}

@@ -189,5 +189,4 @@ public abstract class KotlinMultiFileTestWithJava<M, F> extends KtUsefulTestCase
             }
         });
     }
-
 }

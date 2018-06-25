@@ -217,6 +217,10 @@ public abstract class CLICompiler<A extends CommonCompilerArguments> extends CLI
             extraLanguageFeatures.put(LanguageFeature.ReturnsEffect, LanguageFeature.State.ENABLED);
         }
 
+        if (arguments.getConstantPropagation()) {
+            extraLanguageFeatures.put(LanguageFeature.ConstantPropagation, LanguageFeature.State.ENABLED);
+        }
+
 
         setupPlatformSpecificLanguageFeatureSettings(extraLanguageFeatures, arguments);
 

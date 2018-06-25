@@ -74,6 +74,7 @@ enum class LanguageFeature(
     ProhibitDataClassesOverridingCopy(KOTLIN_1_3),
     RestrictionOfWrongAnnotationsWithUseSiteTargetsOnTypes(KOTLIN_1_3),
     ProhibitInnerClassesOfGenericClassExtendingThrowable(KOTLIN_1_3),
+    ConstantPropagation(sinceVersion = null, defaultState = State.DISABLED),
 
     StrictJavaNullabilityAssertions(sinceVersion = null, defaultState = State.DISABLED),
 

@@ -24,8 +24,12 @@ import org.jetbrains.kotlin.psi.KtDeclaration
 import org.jetbrains.kotlin.psi.KtVisitorVoid
 import org.jetbrains.kotlin.psi.psiUtil.visibilityModifier
 
-class RedundantVisibilityModifierInspection : AbstractKotlinInspection(), CleanupLocalInspectionTool {
-    override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean, session: LocalInspectionToolSession): PsiElementVisitor {
+
+class RedundantVisibilityModifierInspection
+    : AbstractKotlinInspection(), CleanupLocalInspectionTool {
+    override fun buildVisitor(holder: ProblemsHolder,
+                              isOnTheFly: Boolean,
+                              session: LocalInspectionToolSession): PsiElementVisitor {
         return object : KtVisitorVoid() {
             override fun visitDeclaration(declaration: KtDeclaration) {
                 val visibilityModifier = declaration.visibilityModifier() ?: return
@@ -34,10 +38,14 @@ class RedundantVisibilityModifierInspection : AbstractKotlinInspection(), Cleanu
                     holder.registerProblem(visibilityModifier,
                                            "Redundant visibility modifier",
                                            ProblemHighlightType.LIKE_UNUSED_SYMBOL,
-                                           IntentionWrapper(RemoveModifierFix(declaration, implicitVisibility, isRedundant = true),
+                                           IntentionWrapper(RemoveModifierFix(declaration,
+                                                                              implicitVisibility,
+                                                                              isRedundant = true),
                                                             declaration.containingFile))
                 }
             }
         }
     }
 }
+
+
